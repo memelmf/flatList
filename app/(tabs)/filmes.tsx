@@ -13,7 +13,7 @@ export default function Filme() {
       />
 
       <Text style={styles.titulo}>
-        Homem Aranha 123
+        Homem Aranha
       </Text>
 
       <Text style={styles.informacoes}>
