@@ -1,114 +1,197 @@
-import {View, StyleSheet, FlatList, Image} from 'react-native';
-
+import { View, StyleSheet, FlatList, Text, Image } from 'react-native';
 
 const categorias = [
   {
     id: "1",
-    titulo: "Em Alta",
+    titulo: "Comédia",
     filmes: [
-      { id: "1a", titulo: "Oppenheimer", cor: "#1a1a2e", imagem:"https://mir-s3-cdn-cf.behance.net/project_modules/1400/5c3c44212930411.673d9fef7aad7.jpg" },
-      { id: "1b", titulo: "Duna 2", cor: "#16213e", imagem:"https://mir-s3-cdn-cf.behance.net/project_modules/1400/5c3c44212930411.673d9fef7aad7.jpg"  },
-      { id: "1c", titulo: "Barbie", cor: "#0f3460", imagem:"https://mir-s3-cdn-cf.behance.net/project_modules/1400/5c3c44212930411.673d9fef7aad7.jpg"  },
-      { id: "1d", titulo: "Poor Things", cor: "#533483", imagem:"https://mir-s3-cdn-cf.behance.net/project_modules/1400/5c3c44212930411.673d9fef7aad7.jpg"  },
-      { id: "1e", titulo: "Saltburn", cor: "#2b2d42", imagem:"https://mir-s3-cdn-cf.behance.net/project_modules/1400/5c3c44212930411.673d9fef7aad7.jpg"  },
+      {
+        id: "1a",
+        titulo: "As Branquelas",
+        imagem: "https://tse3.mm.bing.net/th/id/OIP.zcE46xXMtWk7K-Na10KMQQAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+      },
+      {
+        id: "1b",
+        titulo: "Gente Grande",
+        imagem: "https://m.media-amazon.com/images/M/MV5BZjEzM2U4NTQtNTdmMi00MDU1LWEzM2YtODcwNDkzZWE5YjhlXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+      },
+      {
+        id: "1c",
+        titulo: "Minha Mãe é uma Peça",
+        imagem: "https://images.justwatch.com/poster/244868796/s718/minha-mae-e-uma-peca-o-filme.jpg",
+      },
+      {
+        id: "1d",
+        titulo: "Todo Mundo em Pânico",
+        imagem: "https://cinemaweb.com.br/wp-content/uploads/2024/06/poster-todo-mundo-em-panico-2000.jpg",
+      },
     ],
   },
+
   {
     id: "2",
     titulo: "Ação",
     filmes: [
-      { id: "2a", titulo: "John Wick 4", cor: "#1b1b2f", imagem:"https://mir-s3-cdn-cf.behance.net/project_modules/1400/5c3c44212930411.673d9fef7aad7.jpg"  },
-      { id: "2b", titulo: "Missão Impossível", cor: "#162447", imagem:"https://mir-s3-cdn-cf.behance.net/project_modules/1400/5c3c44212930411.673d9fef7aad7.jpg"  },
-      { id: "2c", titulo: "Top Gun", cor: "#1f4068", imagem:"https://mir-s3-cdn-cf.behance.net/project_modules/1400/5c3c44212930411.673d9fef7aad7.jpg"  },
-      { id: "2d", titulo: "Mad Max", cor: "#1b262c", imagem:"https://mir-s3-cdn-cf.behance.net/project_modules/1400/5c3c44212930411.673d9fef7aad7.jpg"  },
+      {
+        id: "2a",
+        titulo: "John Wick",
+        imagem: "https://i.dailymail.co.uk/1s/2023/10/28/00/77101577-12672893-image-a-122_1698449970465.jpg",
+      },
+      {
+        id: "2b",
+        titulo: "Top Gun",
+        imagem: "https://tse2.mm.bing.net/th/id/OIP.ihnJM8xgikGKV1e3RcRsaQHaLH?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+      },
+      {
+        id: "2c",
+        titulo: "Vingadores",
+        imagem: "https://tse3.mm.bing.net/th/id/OIP.uPZnorK_fDGQ8VCtcRL_QgHaLH?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+      },
+      {
+        id: "2d",
+        titulo: "Homem-Aranha",
+        imagem: "https://tse1.mm.bing.net/th/id/OIP.YScgwJmodLYCGKejncwxVAHaLH?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+      },
     ],
   },
+
   {
     id: "3",
-    titulo: "Comédia",
+    titulo: "Romance",
     filmes: [
-      { id: "3a", titulo: "Superbad", cor: "#2d132c", imagem:"https://mir-s3-cdn-cf.behance.net/project_modules/1400/5c3c44212930411.673d9fef7aad7.jpg"  },
-      { id: "3b", titulo: "The Grand Budapest", cor: "#1c3334", imagem:"https://mir-s3-cdn-cf.behance.net/project_modules/1400/5c3c44212930411.673d9fef7aad7.jpg"  },
-      { id: "3c", titulo: "Knives Out", cor: "#2c003e", imagem:"https://mir-s3-cdn-cf.behance.net/project_modules/1400/5c3c44212930411.673d9fef7aad7.jpg"  },
+      {
+        id: "3a",
+        titulo: "A Cinco Passos de Você",
+        imagem: "https://tse1.mm.bing.net/th/id/OIP.QDP0U_00LrHxXKpGm0WAHgHaLH?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+      },
+      {
+        id: "3b",
+        titulo: "Para Todos os Garotos",
+        imagem: "https://media.fstatic.com/1Cn21jIOI1T0skuY0OF3oGQ6qFg=/220x330/smart/filters:format(webp)/media/movies/covers/2018/09/Dlx5arLX0AAuss3.jpg",
+      },
+      {
+        id: "3c",
+        titulo: "Diário de uma Paixão",
+        imagem: "https://m.media-amazon.com/images/M/MV5BZjY0YzYwMDQtYmJjNi00Yzg5LWE3OTYtNDQzOGYxN2JiNGQ4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+      },
+      {
+        id: "3d",
+        titulo: "Barraca do Beijo",
+        imagem: "https://cinemaweb.com.br/wp-content/uploads/2024/06/poster-a-barraca-do-beijo-2018.jpg?x30423",
+      },
     ],
   },
+
   {
     id: "4",
-    titulo: "Documentários",
-    filmes: [
-      { id: "4a", titulo: "Free Solo", cor: "#0d0d0d", imagem:"https://mir-s3-cdn-cf.behance.net/project_modules/1400/5c3c44212930411.673d9fef7aad7.jpg"  },
-      { id: "4b", titulo: "The Social Dilemma", cor: "#001011", imagem:"https://mir-s3-cdn-cf.behance.net/project_modules/1400/5c3c44212930411.673d9fef7aad7.jpg"  },
-      { id: "4c", titulo: "My Octopus Teacher", cor: "#002b36", imagem:"https://mir-s3-cdn-cf.behance.net/project_modules/1400/5c3c44212930411.673d9fef7aad7.jpg"  },
-    ],
-  },
-  {
-    id: "5",
     titulo: "Terror",
     filmes: [
-      { id: "5a", titulo: "Hereditary", cor: "#200122", imagem:"https://mir-s3-cdn-cf.behance.net/project_modules/1400/5c3c44212930411.673d9fef7aad7.jpg"  },
-      { id: "5b", titulo: "Midsommar", cor: "#190a05", imagem:"https://mir-s3-cdn-cf.behance.net/project_modules/1400/5c3c44212930411.673d9fef7aad7.jpg"  },
-      { id: "5c", titulo: "Get Out", cor: "#0a0a0a", imagem:"https://mir-s3-cdn-cf.behance.net/project_modules/1400/5c3c44212930411.673d9fef7aad7.jpg"  },
+      {
+        id: "4a",
+        titulo: "Annabelle",
+        imagem: "https://images.moviesanywhere.com/9bb79302cc5390cf15c9b61bace4cc6d/6cfdbb63-d7f9-4625-b000-4648e905ed38.jpg",
+      },
+      {
+        id: "4b",
+        titulo: "Invocação do Mal",
+        imagem: "https://m.media-amazon.com/images/S/pv-target-images/acefd1fb8810351510ad9b6dcdab6f382e920e6d009bf32d78315f7ef2f2484c.jpg",
+      },
+      {
+        id: "4c",
+        titulo: "It: A Coisa",
+        imagem: "https://m.media-amazon.com/images/S/pv-target-images/5a27f1b0f7724cc8e8ec146b4be257a42bee603a2731321ca82312fe9caec6f8.jpg",
+      },
+      {
+        id: "4d",
+        titulo: "Premonição",
+        imagem: "https://m.media-amazon.com/images/M/MV5BN2ZiMzAyZTAtNTc3MS00M2FlLThmNjktOWRmMDJkNGNhMDNkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+      },
     ],
-  }
+  },
 ];
 
+export default function Flat() {
 
-export default function App() {
-    return (
-        <View style={styles.corFundo}>
+  return (
+    <View style={styles.app}>
+
+      <FlatList
+        data={categorias}
+        keyExtractor={item => item.id}
+        renderItem={({ item }) => (
+
+          <View style={styles.categoria}>
+
+            <Text style={styles.tituloCategoria}>
+              {item.titulo}
+            </Text>
+
             <FlatList
-                        data={categorias}
-                        keyExtractor={item => item.id}
-                        renderItem={renderCategoria}
-                    />
-        </View>
-    );
-}
+              data={item.filmes}
+              keyExtractor={filme => filme.id}
+              horizontal={true}
+              showsHorizontalScrollIndicator={false}
+              renderItem={({ item }) => (
 
+                <View style={styles.filme}>
 
-function renderCategoria({item}:{item:any}){
-  return(
-    <View style={styles.categorias}>
-    {item.titulo}
-    <FlatList
-      data={item.filmes}
-      keyExtractor={filme=>filme.id}
-      horizontal={true}
-      // showsHorizontalScrollIndicator={false}
-      contentContainerStyle={{paddingBottom:40}}
-      renderItem={({item})=>(
-          <Image
-          source={{uri:item.imagem}}
-          style={[styles.filme]}
-          >             
-          </Image>
-          
+                  <Image
+                    source={{ uri: item.imagem }}
+                    style={styles.imagem}
+                  />
+
+                  <Text style={styles.tituloFilme}>
+                    {item.titulo}
+                  </Text>
+
+                </View>
+
+              )}
+            />
+
+          </View>
+
         )}
-      > </FlatList>
-      
+      />
+
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
-       categorias:{
-        color:"white",
-        backgroundColor: '#000000'
-       },
-       corFundo:{
-        flex:1,
-        backgroundColor:"black"
-       },
-       filme:{
-        width:100,
-        height:140,
-        borderRadius:8,
-        margin: 5,        
-        justifyContent:'flex-end',
-        padding:8
-       },
-       filmeTitulo:{
-        color:'white',
-        fontSize:12
-       }
+
+  app: {
+    flex: 1,
+    backgroundColor: "#202020",
+  },
+
+  categoria: {
+    marginBottom: 20,
+  },
+
+  tituloCategoria: {
+    color: "#FFFFFF",
+    fontSize: 20,
+    fontWeight: "bold",
+    marginLeft: 15,
+    marginBottom: 8,
+  },
+
+  filme: {
+    width: 120,
+    marginLeft: 15,
+  },
+
+  imagem: {
+    width: 120,
+    height: 170,
+    borderRadius: 5,
+  },
+
+  tituloFilme: {
+    color: "#FFFFFF",
+    fontSize: 13,
+    marginTop: 5,
+  },
+
 });
