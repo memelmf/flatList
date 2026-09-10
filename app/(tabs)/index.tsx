@@ -28,7 +28,7 @@ export default function Flat() {
               renderItem={({ item }) => (
 
                 <View style={styles.filme}>
-                  <Link href={'/filmes'}>
+                  <Link href={`/componentes/filme/${item.id}`}>
 
                   <Image
                     source={{ uri: item.imagem }}
