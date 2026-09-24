@@ -20,26 +20,6 @@ export default function Flat() {
     <View style={styles.app}>
       {/* View é como uma "caixa" que segura o conteúdo */}
 
-      <TextInput
-  style={styles.input}
-  placeholder="Buscar... 🔍︎"
-  placeholderTextColor="#999"
-  onSubmitEditing={(event) => {
-    // Essa função acontece quando a pessoa termina a pesquisa
-
-    const texto = event.nativeEvent.text;
-    // Pega o texto que a pessoa digitou
-
-    if (texto.trim() !== "") {
-      // Verifica se a pessoa realmente digitou alguma coisa
-
-      router.push(`/componentes/busca/${texto}`);
-      // Vai para a página de busca
-      // O texto pesquisado vai junto no endereço
-    }
-  }}
-/>
-
       <FlatList
         data={categorias}
         // Aqui colocamos as categorias dos filmes
@@ -171,22 +151,4 @@ const styles = StyleSheet.create({
     marginTop: 5,
     // Espaço acima do título
   },
-  input: {
-  backgroundColor: "#FFFFFF",
-  //cor fundo
-  color: "#000000",
-  //cor letra
-  height: 45,
-  //altura
-  width: "30%",
-  //largura
-  margin: 15,
-  //margem dos lados
-  paddingHorizontal: 15,
-  // Espaço interno horizontal
-  borderRadius: 8,
-  // Arredonda as pontas
-  fontSize: 16,
-  // Tamanho da letra
-},
 });
