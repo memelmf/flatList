@@ -27,39 +27,64 @@ export default function Filme(){
   // Procura o filme que tem o mesmo ID que recebemos
 
 
+  if (!filme) {
+    // Verifica se o filme foi encontrado
+
+    return (
+      <View style={styles.filme}>
+        <Text style={styles.titulo}>
+          Filme não encontrado
+        </Text>
+        {/* Mostra uma mensagem caso não encontre o filme */}
+      </View>
+    );
+  }
+
+
   return (
     <View style={styles.filme}>
       {/* Tela do filme */}
+
 
       <Image
         source={{
           uri: filme.imagem
         }}
-        // Aqui pega a imagem do filme que foi clicado
+        // Pega a imagem do filme que foi clicado
 
         style={styles.imagem}
         // Usa o estilo da imagem
       />
 
+
       <Text style={styles.titulo}>
         {filme.titulo}
       </Text>
-      {/* Aqui aparece o título do filme clicado */}
+      {/* Mostra o título do filme clicado */}
+
 
       <Text style={styles.informacoes}>
-        2017 • 2h 13min • Ação/Aventura
+        {filme.ano} • {filme.duracao} • {filme.genero}
       </Text>
-      {/* Essas informações ainda estão fixas por enquanto */}
+      {/* 
+        Agora as informações vêm do filme escolhido.
+        Cada filme terá seu próprio ano, duração e gênero.
+      */}
+
 
       <Text style={styles.subtitulo}>
         Sinopse
       </Text>
       {/* Título "Sinopse" */}
 
+
       <Text style={styles.sinopse}>
-        Peter Parker é um jovem que ganha um poderoso senso de responsabilidade após ser picado por um rato genético. Ele se torna o Homem-Aranha e se dedica a proteger sua cidade de vilões.
+        {filme.sinopse}
       </Text>
-      {/* Essa sinopse ainda é a do Homem-Aranha */}
+      {/* 
+        Agora a sinopse também vem do filme escolhido.
+      */}
+
 
     </View>
   );
@@ -68,6 +93,7 @@ export default function Filme(){
 
 const styles = StyleSheet.create({
 // Aqui ficam os estilos
+
 
   filme: {
     flex: 1,
@@ -79,6 +105,7 @@ const styles = StyleSheet.create({
     padding: 20,
     // Espaço interno
   },
+
 
   imagem: {
     width: 200,
@@ -97,6 +124,7 @@ const styles = StyleSheet.create({
     // Espaço abaixo da imagem
   },
 
+
   titulo: {
     color: "#FFFFFF",
     // Cor branca
@@ -111,6 +139,7 @@ const styles = StyleSheet.create({
     // Espaço abaixo
   },
 
+
   informacoes: {
     color: "#AAAAAA",
     // Cor cinza
@@ -121,6 +150,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     // Espaço abaixo
   },
+
 
   subtitulo: {
     color: "#FFFFFF",
@@ -135,6 +165,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
     // Espaço abaixo
   },
+
 
   sinopse: {
     color: "#CCCCCC",
