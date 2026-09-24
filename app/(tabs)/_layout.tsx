@@ -96,34 +96,40 @@ export default function TabLayout() {
 
           headerRight: () => (
             <TextInput
-              placeholder="Buscar..."
+              placeholder="Buscar filmes..."
               // Texto que aparece antes de digitar
 
               placeholderTextColor="#999"
-              // Cor do texto "Buscar..."
+              // Cor do texto "Buscar filmes..."
 
               style={{
-                backgroundColor: "#FFFFFF",
-                // Fundo branco
+  backgroundColor: "#2A2A2A",
+  // Fundo cinza escuro
 
-                color: "#000000",
-                // Cor do texto digitado
+  color: "#FFFFFF",
+  // Texto digitado fica branco
 
-                height: 38,
-                // Altura do campo
+  height: 36,
+  // Altura do campo
 
-                width: 180,
-                // Largura do campo
+  width: 170,
+  // Largura do campo
 
-                marginRight: 15,
-                // Espaço entre o campo e a borda direita
+  marginRight: 15,
+  // Distância da borda direita
 
-                paddingHorizontal: 10,
-                // Espaço interno
+  paddingHorizontal: 14,
+  // Espaço entre o texto e a lateral
 
-                borderRadius: 8,
-                // Arredonda as pontas
-              }}
+  borderRadius: 20,
+  // Deixa o campo bem arredondado
+
+  borderWidth: 1,
+  // Cria uma borda
+
+  borderColor: "#555555",
+  // Cor da borda
+}}
 
               onSubmitEditing={(event) => {
                 // Acontece quando a pessoa termina a pesquisa
