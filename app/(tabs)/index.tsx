@@ -1,52 +1,107 @@
-import { View, StyleSheet, FlatList, Text, Image} from 'react-native';
-import {Link} from 'expo-router';
+import { View, StyleSheet, FlatList, Text, Image, TextInput} from 'react-native';
+// Importa os componentes que vamos usar do React Native
+
+import { Link, useRouter } from 'expo-router';
+// Link serve para ir para outra tela
+// useRouter permite mandar o usuário para outra página
+
 import DadosDosFilmes from '../componentes/DadosDosFilmes';
+// Pega os dados dos nossos filmes
 
 const categorias = DadosDosFilmes();
+// Guarda todas as categorias e filmes
 
 export default function Flat() {
 
+  const router = useRouter();
+  // Cria o controle que vamos usar para mudar de página
+
   return (
     <View style={styles.app}>
+      {/* View é como uma "caixa" que segura o conteúdo */}
+
+      <TextInput
+  style={styles.input}
+  placeholder="Buscar... 🔍︎"
+  placeholderTextColor="#999"
+  onSubmitEditing={(event) => {
+    // Essa função acontece quando a pessoa termina a pesquisa
+
+    const texto = event.nativeEvent.text;
+    // Pega o texto que a pessoa digitou
+
+    if (texto.trim() !== "") {
+      // Verifica se a pessoa realmente digitou alguma coisa
+
+      router.push(`/componentes/busca/${texto}`);
+      // Vai para a página de busca
+      // O texto pesquisado vai junto no endereço
+    }
+  }}
+/>
 
       <FlatList
         data={categorias}
+        // Aqui colocamos as categorias dos filmes
+
         keyExtractor={item => item.id}
+        // Usa o ID da categoria como identificação
+
         renderItem={({ item }) => (
+          // Aqui mostramos cada categoria
 
           <View style={styles.categoria}>
 
             <Text style={styles.tituloCategoria}>
               {item.titulo}
             </Text>
+            {/* Mostra o nome da categoria, por exemplo "Comédia" */}
 
             <FlatList
               data={item.filmes}
+              // Pega os filmes daquela categoria
+
               keyExtractor={filme => filme.id}
+              // Usa o ID de cada filme como identificação
+
               horizontal={true}
+              // Faz os filmes ficarem lado a lado
+
               showsHorizontalScrollIndicator={false}
+              // Esconde a barra de rolagem horizontal
+
               renderItem={({ item }) => (
+                // Mostra cada filme
 
                 <View style={styles.filme}>
+
                   <Link href={`/componentes/filme/${item.id}`}>
+                    {/* 
+                      Vai para a página do filme.
+                      O ID do filme vai junto no endereço.
+                      Exemplo: /filme/2d
+                    */}
 
-                  <Image
-                    source={{ uri: item.imagem }}
-                    style={styles.imagem}
-                  />
+                    <Image
+                      source={{ uri: item.imagem }}
+                      // Pega a imagem que está nos dados do filme
 
-                  <Text style={styles.tituloFilme}>
-                    {item.titulo}
-                  </Text>
+                      style={styles.imagem}
+                      // Usa o estilo da imagem
+                    />
+
+                    <Text style={styles.tituloFilme}>
+                      {item.titulo}
+                    </Text>
+                    {/* Mostra o título do filme */}
+
                   </Link>
 
                 </View>
-
               )}
             />
 
           </View>
-
         )}
       />
 
@@ -55,39 +110,83 @@ export default function Flat() {
 }
 
 const styles = StyleSheet.create({
+// Aqui ficam os estilos da tela
 
   app: {
     flex: 1,
+    // Ocupa a tela inteira
+
     backgroundColor: "#202020",
+    // Cor do fundo
   },
 
   categoria: {
     marginBottom: 20,
+    // Espaço entre uma categoria e outra
   },
 
   tituloCategoria: {
     color: "#FFFFFF",
+    // Cor branca
+
     fontSize: 20,
+    // Tamanho da letra
+
     fontWeight: "bold",
+    // Deixa em negrito
+
     marginLeft: 15,
+    // Espaço da esquerda
+
     marginBottom: 8,
+    // Espaço abaixo do título
   },
 
   filme: {
     width: 120,
+    // Largura do card
+
     marginLeft: 15,
+    // Espaço entre os filmes
   },
 
   imagem: {
     width: 120,
+    // Largura da imagem
+
     height: 170,
+    // Altura da imagem
+
     borderRadius: 5,
+    // Deixa as pontas arredondadas
   },
 
   tituloFilme: {
     color: "#FFFFFF",
-    fontSize: 13,
-    marginTop: 5,
-  },
+    // Cor branca
 
+    fontSize: 13,
+    // Tamanho da letra
+
+    marginTop: 5,
+    // Espaço acima do título
+  },
+  input: {
+  backgroundColor: "#FFFFFF",
+  //cor fundo
+  color: "#000000",
+  //cor letra
+  height: 45,
+  //altura
+  width: "30%",
+  //largura
+  margin: 15,
+  //margem dos lados
+  paddingHorizontal: 15,
+  // Espaço interno horizontal
+  borderRadius: 8,
+  // Arredonda as pontas
+  fontSize: 16,
+  // Tamanho da letra
+},
 });
