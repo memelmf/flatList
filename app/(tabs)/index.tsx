@@ -5,7 +5,7 @@ import { Link, useRouter } from 'expo-router';
 // Link serve para ir para outra tela
 // useRouter permite mandar o usuário para outra página
 
-import DadosDosFilmes from '../componentes/DadosDosFilmes';
+import DadosDosFilmes from './componentes/DadosDosFilmes';
 // Pega os dados dos nossos filmes
 
 const categorias = DadosDosFilmes();

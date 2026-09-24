@@ -8,11 +8,10 @@ import DadosDosFilmes from '../DadosDosFilmes';
 // Importa os dados dos filmes
 
 
-export default function Filme(){
+export default function Filme() {
 
   const { id } = useLocalSearchParams();
   // Pega o ID que veio pelo Link
-  // Exemplo: se clicou no Homem-Aranha, recebe "2d"
 
 
   const categorias = DadosDosFilmes();
@@ -24,7 +23,7 @@ export default function Filme(){
 
 
   const filme = filmes.find(filme => filme.id === id);
-  // Procura o filme que tem o mesmo ID que recebemos
+  // Procura o filme que tem o mesmo ID
 
 
   if (!filme) {
@@ -32,10 +31,11 @@ export default function Filme(){
 
     return (
       <View style={styles.filme}>
+
         <Text style={styles.titulo}>
           Filme não encontrado
         </Text>
-        {/* Mostra uma mensagem caso não encontre o filme */}
+
       </View>
     );
   }
@@ -50,7 +50,7 @@ export default function Filme(){
         source={{
           uri: filme.imagem
         }}
-        // Pega a imagem do filme que foi clicado
+        // Pega a imagem do filme
 
         style={styles.imagem}
         // Usa o estilo da imagem
@@ -60,16 +60,13 @@ export default function Filme(){
       <Text style={styles.titulo}>
         {filme.titulo}
       </Text>
-      {/* Mostra o título do filme clicado */}
+      {/* Mostra o título do filme */}
 
 
       <Text style={styles.informacoes}>
         {filme.ano} • {filme.duracao} • {filme.genero}
       </Text>
-      {/* 
-        Agora as informações vêm do filme escolhido.
-        Cada filme terá seu próprio ano, duração e gênero.
-      */}
+      {/* Mostra as informações do filme */}
 
 
       <Text style={styles.subtitulo}>
@@ -81,10 +78,7 @@ export default function Filme(){
       <Text style={styles.sinopse}>
         {filme.sinopse}
       </Text>
-      {/* 
-        Agora a sinopse também vem do filme escolhido.
-      */}
-
+      {/* Mostra a sinopse do filme */}
 
     </View>
   );
@@ -92,90 +86,50 @@ export default function Filme(){
 
 
 const styles = StyleSheet.create({
-// Aqui ficam os estilos
-
 
   filme: {
     flex: 1,
-    // Ocupa a tela inteira
-
     backgroundColor: "#202020",
-    // Cor do fundo
-
     padding: 20,
-    // Espaço interno
   },
 
 
   imagem: {
     width: 200,
-    // Largura da imagem
-
     height: 300,
-    // Altura da imagem
-
     alignSelf: "center",
-    // Coloca a imagem no centro
-
     borderRadius: 8,
-    // Arredonda as pontas
-
     marginBottom: 15,
-    // Espaço abaixo da imagem
   },
 
 
   titulo: {
     color: "#FFFFFF",
-    // Cor branca
-
     fontSize: 28,
-    // Tamanho da letra
-
     fontWeight: "bold",
-    // Negrito
-
     marginBottom: 8,
-    // Espaço abaixo
   },
 
 
   informacoes: {
     color: "#AAAAAA",
-    // Cor cinza
-
     fontSize: 14,
-    // Tamanho da letra
-
     marginBottom: 20,
-    // Espaço abaixo
   },
 
 
   subtitulo: {
     color: "#FFFFFF",
-    // Cor branca
-
     fontSize: 20,
-    // Tamanho da letra
-
     fontWeight: "bold",
-    // Negrito
-
     marginBottom: 8,
-    // Espaço abaixo
   },
 
 
   sinopse: {
     color: "#CCCCCC",
-    // Cor cinza claro
-
     fontSize: 15,
-    // Tamanho da letra
-
     lineHeight: 22,
-    // Espaçamento entre as linhas
   },
 
 });

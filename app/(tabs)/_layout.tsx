@@ -3,7 +3,7 @@ import { Ionicons } from "@expo/vector-icons";
 
 import { Tabs, useRouter } from "expo-router";
 // Tabs cria as abas
-// useRouter permite mandar para a página de busca
+// useRouter permite mandar para outra página
 
 import { Platform, TextInput } from "react-native";
 // Platform verifica se é Android ou iPhone
@@ -103,33 +103,33 @@ export default function TabLayout() {
               // Cor do texto "Buscar filmes..."
 
               style={{
-  backgroundColor: "#2A2A2A",
-  // Fundo cinza escuro
+                backgroundColor: "#2A2A2A",
+                // Fundo cinza escuro
 
-  color: "#FFFFFF",
-  // Texto digitado fica branco
+                color: "#FFFFFF",
+                // Texto digitado fica branco
 
-  height: 36,
-  // Altura do campo
+                height: 36,
+                // Altura do campo
 
-  width: 170,
-  // Largura do campo
+                width: 170,
+                // Largura do campo
 
-  marginRight: 15,
-  // Distância da borda direita
+                marginRight: 15,
+                // Distância da borda direita
 
-  paddingHorizontal: 14,
-  // Espaço entre o texto e a lateral
+                paddingHorizontal: 14,
+                // Espaço entre o texto e a lateral
 
-  borderRadius: 20,
-  // Deixa o campo bem arredondado
+                borderRadius: 20,
+                // Deixa o campo arredondado
 
-  borderWidth: 1,
-  // Cria uma borda
+                borderWidth: 1,
+                // Cria uma borda
 
-  borderColor: "#555555",
-  // Cor da borda
-}}
+                borderColor: "#555555",
+                // Cor da borda
+              }}
 
               onSubmitEditing={(event) => {
                 // Acontece quando a pessoa termina a pesquisa
@@ -138,7 +138,7 @@ export default function TabLayout() {
                 // Pega o texto que foi digitado
 
                 if (texto.trim() !== "") {
-                  // Verifica se a pessoa digitou alguma coisa
+                  // Verifica se foi digitado alguma coisa
 
                   router.push(`/componentes/busca/${texto}`);
                   // Vai para a página de resultados
@@ -151,7 +151,7 @@ export default function TabLayout() {
 
           tabBarIcon: ({ color, focused }) => (
             <Ionicons
-              name={focused ? "heart" : "home-outline"}
+              name={focused ? "home" : "home-outline"}
               size={24}
               color={color}
             />
@@ -269,6 +269,18 @@ export default function TabLayout() {
               color={color}
             />
           ),
+        }}
+      />
+
+
+      <Tabs.Screen
+        name="componentes"
+        options={{
+          href: null,
+          // Não cria uma nova opção no rodapé para "componentes"
+
+          headerShown: false,
+          // O header será controlado pelo _layout.tsx de componentes
         }}
       />
 

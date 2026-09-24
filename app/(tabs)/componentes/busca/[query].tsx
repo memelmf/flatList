@@ -29,8 +29,6 @@ export default function Busca() {
     filme.titulo.toLowerCase().includes(String(query).toLowerCase())
   );
   // Procura nos títulos dos filmes aquilo que foi pesquisado
-  // toLowerCase deixa tudo em letras minúsculas para facilitar a comparação
-  // includes verifica se o texto pesquisado aparece no título
 
 
   return (
@@ -48,32 +46,23 @@ export default function Busca() {
         data={filmesEncontrados}
         // Coloca na lista somente os filmes encontrados
 
-
         keyExtractor={item => item.id}
         // Usa o ID do filme como identificação
-
 
         numColumns={3}
         // Coloca 3 filmes em cada linha
 
-
         renderItem={({ item }) => (
-          // Mostra cada filme encontrado
-
+          // Mostra cada filme
 
           <View style={styles.filme}>
 
             <Link href={`/componentes/filme/${item.id}`}>
-              {/* 
-                Quando clicar no filme,
-                vai para a página daquele filme
-              */}
-
+              {/* Quando clicar no filme, vai para a página daquele filme */}
 
               <Image
                 source={{ uri: item.imagem }}
                 // Pega a imagem do filme
-
 
                 style={styles.imagem}
                 // Usa o estilo da imagem
@@ -97,10 +86,7 @@ export default function Busca() {
           Nenhum filme encontrado.
         </Text>
       )}
-      {/* 
-        Se nenhum filme for encontrado,
-        mostra essa mensagem
-      */}
+      {/* Mostra uma mensagem caso nenhum filme seja encontrado */}
 
     </View>
   );
@@ -108,81 +94,47 @@ export default function Busca() {
 
 
 const styles = StyleSheet.create({
-// Aqui ficam os estilos da tela
-
 
   app: {
     flex: 1,
-    // Ocupa a tela inteira
-
     backgroundColor: "#202020",
-    // Usa o mesmo fundo da página principal
-
     padding: 15,
-    // Espaço interno da tela
   },
 
 
   titulo: {
     color: "#FFFFFF",
-    // Cor branca
-
     fontSize: 20,
-    // Tamanho da letra
-
     fontWeight: "bold",
-    // Deixa o texto em negrito
-
     marginBottom: 15,
-    // Espaço abaixo do título
   },
 
 
   filme: {
     width: "33.33%",
-    // Cada filme ocupa aproximadamente um terço da tela
-
     padding: 5,
-    // Espaço entre os filmes
   },
 
 
   imagem: {
     width: "100%",
-    // A imagem ocupa toda a largura disponível
-
     height: 170,
-    // Altura da imagem
-
     borderRadius: 5,
-    // Arredonda as pontas da imagem
   },
 
 
   tituloFilme: {
     color: "#FFFFFF",
-    // Cor branca
-
     fontSize: 13,
-    // Tamanho do texto
-
     marginTop: 5,
-    // Espaço acima do título
   },
 
 
   nenhum: {
     color: "#FFFFFF",
-    // Cor branca
-
     fontSize: 16,
-    // Tamanho da mensagem
-
     textAlign: "center",
-    // Centraliza a mensagem
-
     marginTop: 30,
-    // Espaço acima da mensagem
   },
 
 });
